@@ -104,20 +104,6 @@ public class JibServiceUtilTest {
     }
 
     @Test
-    public void testAppendOriginalImageNameTagIfApplicable() {
-        // Given
-        List<String> imageTagList = Arrays.asList("0.0.1", "0.0.1-SNAPSHOT");
-
-        // When
-        Set<String> result = JibServiceUtil.getAllImageTags(imageTagList, "test-project");
-
-        // Then
-        assertNotNull(result);
-        assertEquals(3, result.size());
-        assertArrayEquals(new String[]{"0.0.1-SNAPSHOT", "0.0.1", "latest"}, result.toArray());
-    }
-
-    @Test
     public void testGetFullImageNameWithDefaultTag() {
         assertEquals("test/test-project:latest", JibServiceUtil.getFullImageName(getSampleImageConfiguration(), null));
     }
